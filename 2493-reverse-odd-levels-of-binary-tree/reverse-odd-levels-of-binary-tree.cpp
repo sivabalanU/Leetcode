@@ -18,7 +18,7 @@ public:
         }
        queue<TreeNode*> q;
        q.push(root);
-       int count = 1;
+       int level = 1;
        while(!q.empty())
        {
            int n = q.size();
@@ -37,7 +37,7 @@ public:
                }
                vec.push_back(node);
            }
-           if(count % 2 ==0)
+           if(level % 2 ==0)
            {
 
                  int i= 0;
@@ -46,14 +46,12 @@ public:
                 {
                     TreeNode* node1 = vec[i];
                     TreeNode* node2 = vec[j];
-                    int value = node1->val;
-                    node1->val = node2->val;
-                    node2->val = value;
+                    swap(node1->val,node2->val);
                     i++;
                     j--;
                  }
            }
-           count++;
+           level++;
        }
        return root;   
     }
