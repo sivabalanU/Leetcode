@@ -12,6 +12,10 @@
 class Solution {
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
+        if(!root)
+        {
+            return nullptr;
+        }
        queue<TreeNode*> q;
        q.push(root);
        int count = 1;
