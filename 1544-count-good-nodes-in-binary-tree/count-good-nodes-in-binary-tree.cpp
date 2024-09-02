@@ -13,22 +13,21 @@ class Solution {
 public:
     int count =0; 
     int goodNodes(TreeNode* root) {
-        int node =  root->val;
-        Traverse(root,node);
+        Traverse(root,root->val);
         return count;
     }
-    void Traverse(TreeNode* root,int node)
+    void Traverse(TreeNode* root,int cur)
     {
         if(root == nullptr)
         {
             return;
         }
-        if(root->val >= node)
+        if(root->val >= cur)
         {
+            cur = root->val;
             count++;
-            node = root->val;
         }
-        Traverse(root->left,node);
-        Traverse(root->right,node);
+        Traverse(root->left,cur);
+        Traverse(root->right,cur);
     }
 };
