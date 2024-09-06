@@ -1,30 +1,21 @@
 class Solution {
 public:
     bool canConstruct(string ran, string mag) {
-         sort(ran.begin(),ran.end());
-         sort(mag.begin(),mag.end());
-         int i=0;
-         int j=0;
-         int count =0;
-         while(i< ran.length() && j < mag.length())
-         {
-            if(ran[i]==mag[j])
+        int arr[26];
+        for(char c:mag)
+        {
+            arr[c-'a']++;
+        }
+        for(char c:ran)
+        {
+            if(arr[c-'a']>0)
             {
-                count++;
-                // cout<<ran[i]<<" "<<mag[j]<<endl;
-                i++;
-                j++;
+                arr[c-'a']--;
             }
-            else if(ran[i] > mag[j])
-            {
-                j++;
-            } 
-            else if(ran[i] < mag[j])
-            {
-                i++;
-            } 
-         }
-   
-         return count==ran.length();
+            else{
+               return false;
+            }
+        }
+         return true;
     }
 };
