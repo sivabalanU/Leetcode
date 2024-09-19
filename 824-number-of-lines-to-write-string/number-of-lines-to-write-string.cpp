@@ -25,6 +25,6 @@ public:
             return {Line_count,sum};
         }
     
-        return {Line_count,flag};
+        return {Line_count,100};
     }
 };
